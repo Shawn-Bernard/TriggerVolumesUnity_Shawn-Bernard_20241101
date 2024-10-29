@@ -11,6 +11,7 @@ public class TriggerPlayAnimation : MonoBehaviour
     private void Start()
     {
         _animator = AnimatedObject.GetComponent<Animator>();
+        _animator.enabled = false;
     }
 
     void OnTriggerEnter(Collider other)
