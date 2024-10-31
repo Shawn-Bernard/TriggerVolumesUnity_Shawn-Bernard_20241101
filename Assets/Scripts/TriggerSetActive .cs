@@ -6,15 +6,29 @@ using UnityEngine;
 
 public class TriggerSetActive : MonoBehaviour
 { 
-    public GameObject targetObject;
+    public Light Light;
+    
+    public Material Wanted;
+    public Material notWanted;
+    
+    public GameObject Picture;
     
     void OnTriggerEnter(Collider other)
     {
-        targetObject.SetActive(false);
+        Picture.GetComponent<Renderer>().material = notWanted;
+
+
+        Light.enabled = false;
+        
+        
+        
+        
+        //Sprite.texture = null;
     }
 
     void OnTriggerExit(Collider other)
     {
-        targetObject.SetActive(true);
+        Light.enabled = true;
+        Picture.GetComponent<Renderer>().material = Wanted;
     }       
 }
