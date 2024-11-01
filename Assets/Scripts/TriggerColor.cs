@@ -12,16 +12,23 @@ public class TriggerColor : MonoBehaviour
     public Material WhiteBulb;
     public Material RedBulb;
 
+    public Renderer Render;
+
     public GameObject Bulb;
+    private void Start()
+    {
+        Render = Bulb.GetComponent<Renderer>();
+    }
     void OnTriggerEnter(Collider other)
     {
-        Bulb.GetComponent<Renderer>().material = RedBulb;
+        Render.material = RedBulb;
         Lt.color = color0;
+
     }
 
     void OnTriggerExit(Collider other)
     {
-        Bulb.GetComponent<Renderer>().material = WhiteBulb;
+        Render.material = WhiteBulb;
         Lt.color = color1;
     }
 }

@@ -10,25 +10,28 @@ public class TriggerSetActive : MonoBehaviour
     
     public Material Wanted;
     public Material notWanted;
-    
+
+    public Renderer Render;
+
     public GameObject Picture;
-    
+
+    private void Start()
+    {
+        Render = Picture.GetComponent<Renderer>();
+    }
     void OnTriggerEnter(Collider other)
     {
-        Picture.GetComponent<Renderer>().material = notWanted;
-
+        Render.material = notWanted;
+        // Getting the component for picture and making the material equal to my public material I put in
 
         Light.enabled = false;
+        // Making The light component false
         
-        
-        
-        
-        //Sprite.texture = null;
     }
 
     void OnTriggerExit(Collider other)
     {
         Light.enabled = true;
-        Picture.GetComponent<Renderer>().material = Wanted;
+        Render.material = Wanted;
     }       
 }
